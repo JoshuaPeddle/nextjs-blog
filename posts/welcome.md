@@ -12,7 +12,7 @@ All Basic Syntax features from https://www.markdownguide.org/cheat-sheet/ are su
 Also, GFM (GitHub Flavored Markdown) https://github.com/remarkjs/remark-gfm is supported.
 
 ### Autolink literals
-Just type a URL on its own line and it will automatically become a link. 
+Just type a URL and it will automatically become a link. 
 
 `www.google.com` becomes www.google.com
 
