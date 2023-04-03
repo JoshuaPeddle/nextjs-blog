@@ -9,7 +9,7 @@ This blog is just starting devlopment. It is at the point where it is able to be
 ## Next goal
 I'd like to be able to add posts from a web interface. I think I'll make a separate project to populate a database of posts. This app will have to be converted to retrieve posts from that database.
 
-Advantages of this method are that I can add posts without rebuilding the app on vercel. Posts would be retrieved from and api accessing the database. I think I'll use momgodb for this. I only need a single database and I could host it using mongodb Atlas.
+Advantages of this method are that I can add posts without rebuilding the app on vercel. Posts would be retrieved from a server sided api and sent to the client. I think momgodb is well suited for this. I only need a simple database and I could host it using mongodb Atlas.
 
 ### Future goals
 1. Add an about me page
