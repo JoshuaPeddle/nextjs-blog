@@ -42,3 +42,21 @@ code {
   display: block;
   word-wrap: break-word;
 }
+
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: #11111a;
+    color: #fff;
+  }
+  code {
+    background: #0f0f0f;
+    color: #ddd;
+  }
+  a {
+    color: #2290ff;
+    text-decoration: none;
+  }
+  
+  
+}
