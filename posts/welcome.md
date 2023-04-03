@@ -22,17 +22,6 @@ Just type a URL on its own line and it will automatically become a link.
 `~one~ or ~~two~~ tildes.` becomes *~one~ or ~~two~~ tildes.*
 
 
-
-`print(hello)`
-
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
-
 ### Table
 Tables can be formattled using the following syntax:
 
