@@ -4,6 +4,8 @@ import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
+import Footer from './footer';
+
 const name = 'Joshua Peddle';
 export const siteTitle = 'Personal Blog';
 
@@ -59,11 +61,7 @@ export default function Layout({ children, home }) {
         )}
       </header>
       <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
-        </div>
-      )}
+      <Footer is_home={home} />
     </div>
   );
 }
