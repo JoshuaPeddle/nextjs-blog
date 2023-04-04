@@ -3,14 +3,14 @@ import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 
-export function getServerSideProps(context){
+export function getServerSideProps(context) {
   return {
     props: {
       date: context.query.date,
       title: context.query.title,
       contentHtml: context.query.contentHtml
     }
-  }
+  };
 }
 
 export default function Post({ date, title, contentHtml}) {

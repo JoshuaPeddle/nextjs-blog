@@ -5,31 +5,27 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 
-import clientPromise from '../lib/mongodb'
+import clientPromise from '../lib/mongodb';
 
-
-
-export async function getServerSideProps(context) {
-
+export async function getServerSideProps() {
   try {
-    await clientPromise
+    await clientPromise;
     const allPostsData = await getSortedPostsData();
     return {
       props: {
         isConnected: true,
         allPostsData,
       },
-    }
+    };
   } catch (e) {
-    console.error(e)
+    console.error(e);
     return {
       props: {
         isConnected: false,
       },
-    }
+    };
   }
 }
-
 
 export default function Home({ allPostsData }) {
   return (
