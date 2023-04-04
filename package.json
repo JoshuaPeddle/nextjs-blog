@@ -7,10 +7,12 @@
   },
   "dependencies": {
     "date-fns": "^2.29.3",
+    "easymde": "^2.18.0",
     "gray-matter": "^4.0.3",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-simplemde-editor": "^5.2.0",
     "remark": "^14.0.2",
     "remark-gfm": "^3.0.1",
     "remark-html": "^15.0.2"
