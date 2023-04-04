@@ -1,7 +1,7 @@
 import Layout from '../components/layout';
 import Head from 'next/head';
 import MDEeditor from "../components/editor";
-import {getSortedPostsData} from '../lib/posts-db'
+import { getSortedPostsData } from '../lib/posts-db'
 
 
 export async function getServerSideProps(context) {
@@ -14,7 +14,10 @@ export async function getServerSideProps(context) {
 }
 export default function Editor() {
     return (
-        <Layout><Head></Head>  <MDEeditor /> </Layout>
-       
+        <Layout>
+            <Head></Head>
+            <MDEeditor />
+        </Layout>
+
     );
 }
