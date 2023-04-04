@@ -7,7 +7,13 @@ export default function About() {
         <Layout about>
             <h1>About</h1>
             <p>
-                I'm a software developer from Canada. I studied computer science at Memorial University. I'm also a <Link href="https://www.github.com/joshuapeddle">Github</Link> contributor.
+                Hi, I'm [Your Name], a passionate software developer based in Canada. I graduated with a degree in computer science from Memorial University, where I honed my skills in programming and software development. I'm also an active Github contributor, working on a variety of projects in my spare time.
+
+As a developer, I'm most passionate about building scalable, high-performance applications that make a difference in people's lives. I'm always eager to learn new programming languages and technologies, and I enjoy collaborating with other developers to bring innovative ideas to life.
+
+When I'm not coding, you can usually find me exploring the great outdoors, trying out new recipes in the kitchen, or listening to my favorite indie bands. I'm also an avid traveler, having visited more than a dozen countries around the world.
+
+If you're interested in connecting with me or learning more about my work, please feel free to follow me on Twitter or connect with me on LinkedIn. Thanks for stopping by!
             </p>
         </Layout>
 
