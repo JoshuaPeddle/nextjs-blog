@@ -1,4 +1,4 @@
-import { savePost } from "../../lib/posts";
+import { savePost } from "../../lib/posts-db";
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
@@ -11,9 +11,5 @@ export default async function handler(req, res) {
         catch (e) {
             res.status(500).json({ error: e.message });
         }
-
-      // Create a new post in the file system.
-    } else if (req.method === 'PUT'){
-      // Update an existing post in the file system.
     }
   }
