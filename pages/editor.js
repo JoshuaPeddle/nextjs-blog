@@ -6,6 +6,7 @@ import { getSortedPostsData } from '../lib/posts-db'
 
 
 export async function getServerSideProps(context) {
+
     const allPostsData = await getSortedPostsData();
 
     return {
@@ -22,6 +23,5 @@ export default function Editor({ allPostsData }) {
             <Head></Head>
             <MDEeditor allPostsData={allPostsData} />
         </Layout>
-
     );
 }
