@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "date-fns": "^2.29.3",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "eslint": "^8.37.0",
+    "eslint-config-next": "^13.2.4",
     "eslint-plugin-react": "^7.32.2"
   }
 }
