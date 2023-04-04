@@ -1,4 +1,4 @@
-import { getPostData, deletePostData } from "../../../lib/posts-db";
+import { getPostData, deletePostData } from "../../../lib/posts";
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
