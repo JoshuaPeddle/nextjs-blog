@@ -56,3 +56,23 @@
         color: #aaa;
       }
   }
+
+  .darkText {
+    color: #333;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .darkText {
+        color: #9f9c9c;
+      }
+  }
+
+  .accentText {
+    color: #0070f3;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .accentText {
+        color: #112f29e9;
+      }
+  }
