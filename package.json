@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "date-fns": "^2.29.3",
@@ -20,6 +21,7 @@
     "remark-html": "^15.0.2"
   },
   "devDependencies": {
+    "cypress": "^12.9.0",
     "eslint": "^8.37.0",
     "eslint-config-next": "^13.2.4",
     "eslint-plugin-react": "^7.32.2"
