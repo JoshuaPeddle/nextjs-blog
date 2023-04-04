@@ -4,8 +4,6 @@ import "easymde/dist/easymde.min.css";
 import styles from "./editor.module.css";
 const SimpleMDEReact = dynamic(() => import('react-simplemde-editor'), { ssr: false })
 
-/* This function could make a POST request to an API endpoint '/api/posts' */
-// 
 
 
 
