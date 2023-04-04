@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Footer from './footer';
 
 const name = 'Joshua Peddle';
-export const siteTitle = 'Personal Blog';
+export const siteTitle = 'Blog';
 
 export default function Layout({ children, home }) {
   return (
