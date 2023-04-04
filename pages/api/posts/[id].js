@@ -1,13 +1,12 @@
-import { getPostData, deletePostData } from "../../../lib/posts";
+import { getPostData, deletePostData } from '../../../lib/posts';
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     const { id } = req.query;
     const post = await getPostData(id);
     res.status(200).json(post);
-  }
-  else if (req.method ==="DELETE"){
-    console.log("Deleting post");
+  } else if (req.method ==='DELETE') {
+    console.log('Deleting post');
     const { id } = req.query;
     const post = await deletePostData(id);
     res.status(200).json(post);
