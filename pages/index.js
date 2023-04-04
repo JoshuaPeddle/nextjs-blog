@@ -3,35 +3,29 @@ import Link from 'next/link';
 import Date from '../components/date';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedPostsData } from '../lib/posts-db';
 
 import clientPromise from '../lib/mongodb'
 
 
 
 export async function getServerSideProps(context) {
-  const allPostsData =  getSortedPostsData(); // TODO: add error handling
 
   try {
     await clientPromise
-    // `await clientPromise` will use the default database passed in the MONGODB_URI
-    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
-    //
-    // `const client = await clientPromise`
-    // `const db = client.db("myDatabase")`
-    //
-    // Then you can execute queries against your database like so:
-    // db.find({}) or any of the MongoDB Node Driver commands
-
+    const allPostsData = await getSortedPostsData();
     return {
-      props: { isConnected: true, 
-        allPostsData, },
+      props: {
+        isConnected: true,
+        allPostsData,
+      },
     }
   } catch (e) {
     console.error(e)
     return {
-      props: { isConnected: false,
-        allPostsData, },
+      props: {
+        isConnected: false,
+      },
     }
   }
 }
