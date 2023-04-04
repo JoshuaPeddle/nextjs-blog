@@ -60,7 +60,6 @@ export default function Editor({ allPostsData }) {
     };
 
     const deletePost = (value) => {
-        console.log("Deleting post");
         confirm('Are you sure you want to delete this item?');
         fetch('/api/posts/' + value.id, {
             method: 'DELETE',
@@ -82,7 +81,6 @@ export default function Editor({ allPostsData }) {
     const [errorMessage, setErrorMessage] = useState("");
 
     function saveNewPost() {
-        console.log("Saving new post");
         fetch('/api/posts', {
             method: 'POST',
             headers: {
