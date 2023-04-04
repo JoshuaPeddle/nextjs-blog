@@ -4,19 +4,23 @@ import MDEeditor from "../components/editor";
 import { getSortedPostsData } from '../lib/posts-db'
 
 
+
 export async function getServerSideProps(context) {
-    const allPostsData = await getSortedPostsData()
+    const allPostsData = await getSortedPostsData();
+
     return {
         props: {
-            allPostsData
-        }
+            allPostsData,
+        },
     }
 }
-export default function Editor() {
+
+
+export default function Editor({ allPostsData }) {
     return (
         <Layout>
             <Head></Head>
-            <MDEeditor />
+            <MDEeditor allPostsData={allPostsData} />
         </Layout>
 
     );

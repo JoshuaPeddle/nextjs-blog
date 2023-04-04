@@ -4,14 +4,38 @@ import "easymde/dist/easymde.min.css";
 import styles from "./editor.module.css";
 const SimpleMDEReact = dynamic(() => import('react-simplemde-editor'), { ssr: false })
 
+import Link from 'next/link';
+import Date from '../components/date';
+import utilStyles from '../styles/utils.module.css';
 
 
+function NoteList({ allPostsData, setPost }) {
+    return (
+        <div className={styles.container}>
+            <ul>
+                {allPostsData.map(({ id, date, title,content, contentHtml }) => (
+                    <li key={id}>
+                        <span className={utilStyles.accentText}>{title}</span>
+                        <br/>
+                        <button onClick={()=>setPost({id,title, content})}>
+                       Edit
+                       </button>
+                        <br />
+                        <small className={utilStyles.darkText}>
+                            <Date dateString={date} />
+                        </small>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
+}
 
-export default function Editor() {
+export default function Editor({ allPostsData}) {
 
     const [content, setContent] = useState("Body");
     const [title, setTitle] = useState("Title");
-    const [id, setId] = useState("Id");
+    const [id, setId] = useState("");
 
     const onContentChange = useCallback((value) => {
         setContent(value);
@@ -24,6 +48,13 @@ export default function Editor() {
     const onTitleChange = useCallback((value) => {
         setTitle(value.target.value);
     }, []);
+
+
+    const setPost = (value) => {
+        setId(value.id);
+        setTitle(value.title);
+        setContent(value.content);
+    };
 
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -63,6 +94,7 @@ export default function Editor() {
             </div>
             <button onClick={saveNewPost}>Log value</button>
             {error ? <p>There was an error: {errorMessage}</p> : <p>{errorMessage}</p>}
+            <NoteList setPost={setPost} allPostsData={allPostsData}/>
         </>
     );
 }
