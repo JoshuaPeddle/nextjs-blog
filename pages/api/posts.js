@@ -1,4 +1,4 @@
-import { savePost } from '../../lib/posts-db';
+import { savePost } from '../../lib/posts';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
