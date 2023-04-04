@@ -36,6 +36,10 @@ export default function Post() {
 
   }, [id, router])
 
+  if (!postData.title) {
+    return <Layout>Loading...</Layout>
+  }
+
   return (
     <Layout>
       <Head>
