@@ -13,16 +13,16 @@ function NoteList({ allPostsData, setPost, deletePost }) {
     return (
         <div className={styles.container}>
             <ul>
-                {allPostsData.map(({ id, date, title,content, contentHtml }) => (
+                {allPostsData.map(({ id, date, title, content, contentHtml }) => (
                     <li key={id}>
                         <span className={utilStyles.accentText}>{title}</span>
-                        <br/>
-                        <button onClick={()=>setPost({id,title, content})}>
-                       Edit
-                       </button>
-                       <button onClick={()=>deletePost({id})}>
-                       Delete
-                       </button>
+                        <br />
+                        <button onClick={() => setPost({ id, title, content })}>
+                            Edit
+                        </button>
+                        <button onClick={() => deletePost({ id })}>
+                            Delete
+                        </button>
                         <br />
                         <small className={utilStyles.darkText}>
                             <Date dateString={date} />
@@ -68,14 +68,14 @@ export default function Editor({ allPostsData }) {
                 'Content-Type': 'application/json',
             },
         })
-        .then((response) => {
-            if (response.status === 200) {
-                setError(false);
-            } else {
-                setError(true); 
-            }
-        })
-        
+            .then((response) => {
+                if (response.status === 200) {
+                    setError(false);
+                } else {
+                    setError(true);
+                }
+            })
+
     };
 
     const [error, setError] = useState(false);
@@ -116,7 +116,7 @@ export default function Editor({ allPostsData }) {
             </div>
             <button onClick={saveNewPost}>Save note</button>
             {error ? <p>There was an error: {errorMessage}</p> : <p>{errorMessage}</p>}
-            <NoteList setPost={setPost} deletePost={deletePost} allPostsData={allPostsData}/>
+            <NoteList setPost={setPost} deletePost={deletePost} allPostsData={allPostsData} />
         </>
     );
 }
