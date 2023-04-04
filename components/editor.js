@@ -9,7 +9,7 @@ import Date from '../components/date';
 import utilStyles from '../styles/utils.module.css';
 
 
-function NoteList({ allPostsData, setPost }) {
+function NoteList({ allPostsData, setPost, deletePost }) {
     return (
         <div className={styles.container}>
             <ul>
@@ -19,6 +19,9 @@ function NoteList({ allPostsData, setPost }) {
                         <br/>
                         <button onClick={()=>setPost({id,title, content})}>
                        Edit
+                       </button>
+                       <button onClick={()=>deletePost({id})}>
+                       Delete
                        </button>
                         <br />
                         <small className={utilStyles.darkText}>
@@ -31,7 +34,7 @@ function NoteList({ allPostsData, setPost }) {
     )
 }
 
-export default function Editor({ allPostsData}) {
+export default function Editor({ allPostsData }) {
 
     const [content, setContent] = useState("Body");
     const [title, setTitle] = useState("Title");
@@ -54,6 +57,25 @@ export default function Editor({ allPostsData}) {
         setId(value.id);
         setTitle(value.title);
         setContent(value.content);
+    };
+
+    const deletePost = (value) => {
+        console.log("Deleting post");
+        confirm('Are you sure you want to delete this item?');
+        fetch('/api/posts/' + value.id, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then((response) => {
+            if (response.status === 200) {
+                setError(false);
+            } else {
+                setError(true); 
+            }
+        })
+        
     };
 
     const [error, setError] = useState(false);
@@ -92,9 +114,9 @@ export default function Editor({ allPostsData}) {
                 <input type="text" value={title} onChange={onTitleChange} />
                 <SimpleMDEReact value={content} onChange={onContentChange} />
             </div>
-            <button onClick={saveNewPost}>Log value</button>
+            <button onClick={saveNewPost}>Save note</button>
             {error ? <p>There was an error: {errorMessage}</p> : <p>{errorMessage}</p>}
-            <NoteList setPost={setPost} allPostsData={allPostsData}/>
+            <NoteList setPost={setPost} deletePost={deletePost} allPostsData={allPostsData}/>
         </>
     );
 }
