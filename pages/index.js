@@ -34,12 +34,15 @@ export async function getServerSideProps(context) {
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}></h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, contentHtml }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
+              <Link href={{pathname:`/posts/${id}`, query: {id, date, title, contentHtml}}}>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
