@@ -14,10 +14,10 @@ function NoteList({ allPostsData, setPost, deletePost }) {
           <li key={id}>
             <span className={utilStyles.accentText}>{title}</span>
             <br />
-            <button onClick={() => setPost({ id, title, content })}>
+            <button id='editButton' onClick={() => setPost({ id, title, content })}>
                             Edit
             </button>
-            <button onClick={() => deletePost({ id })}>
+            <button id='deleteButton' onClick={() => deletePost({ id })}>
                             Delete
             </button>
             <br />
@@ -95,11 +95,11 @@ export default function Editor({ allPostsData }) {
   return (
     <>
       <div className={styles.container}>
-        <input type="text" value={id} onChange={onIdChange} />
-        <input type="text" value={title} onChange={onTitleChange} />
+        <input type="text" value={id} onChange={onIdChange} disabled={true} />
+        <input type="text" id='titleInput' value={title} onChange={onTitleChange} />
         <SimpleMDEReact value={content} onChange={onContentChange} />
       </div>
-      <button onClick={saveNewPost}>Save note</button>
+      <button id='saveNewPost' onClick={saveNewPost}>Save note</button>
       {error ? <p>There was an error: {errorMessage}</p> : <p>{errorMessage}</p>}
       <NoteList setPost={setPost} deletePost={deletePost} allPostsData={allPostsData} />
     </>

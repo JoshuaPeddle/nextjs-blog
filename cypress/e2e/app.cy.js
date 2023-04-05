@@ -22,5 +22,65 @@ describe('Navigation', () => {
   })
 })
 
+
+describe('Post creation, edit and deletion', () => {
+  it('Submit new post', () => {
+    // Start from the index page
+    cy.visit('/editor')
+
+    // Find a link with an href attribute containing "about" and click it
+    console.log( cy.get('a[href*="about"]'))
+    cy.get('#titleInput').type('{backspace}{backspace}{backspace}{backspace}{backspace}Hello World')
+
+    cy.get('.CodeMirror-scroll').type('{backspace}{backspace}{backspace}{backspace}Hello World')
+
+    // The new url should include "/about"
+    cy.get('#saveNewPost').click()
+  })
+
+  it('Check that the note exists', () => {
+    cy.visit('/')
+
+    cy.get('a').contains('Hello World').click()
+
+    cy.get('p').contains('Hello World')
+  })
+
+  it('Edit the post', () => {
+    // Start from the index page
+    cy.visit('/editor')
+
+    // Find a link with an href attribute containing "about" and click it
+    console.log( cy.get('a[href*="about"]'))
+    cy.get('#titleInput').type('{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}1234567')
+
+    cy.get('.CodeMirror-scroll').type('{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}1234567')
+
+    // The new url should include "/about"
+    cy.get('#saveNewPost').click()
+  })
+
+  it('Check that the edited note exists', () => {
+    cy.visit('/')
+
+    cy.get('a').contains('1234567').click()
+
+    cy.get('p').contains('1234567')
+  })
+
+  it('Delete the note', () => {
+    // Start from the index page
+    cy.visit('/editor')
+
+    // Find a link with an href attribute containing "about" and click it
+    cy.get('#deleteButton').first().click()
+
+    cy.visit('/')
+
+    cy.get('a').contains('1234567').should('not.exist')
+  })
+
+})
+
 // Prevent TypeScript from reading file as legacy script
 export {}

@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open"
+    "cypress": "cypress run"
   },
   "dependencies": {
     "date-fns": "^2.29.3",
