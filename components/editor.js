@@ -15,10 +15,10 @@ function NoteList({ allPostsData, setPost, deletePost }) {
             <span className={utilStyles.accentText}>{title}</span>
             <br />
             <button id='editButton' onClick={() => setPost({ id, title, content })}>
-                            Edit
+              Edit
             </button>
             <button id='deleteButton' onClick={() => deletePost({ id })}>
-                            Delete
+              Delete
             </button>
             <br />
             <small className={utilStyles.darkText}>
@@ -32,8 +32,8 @@ function NoteList({ allPostsData, setPost, deletePost }) {
 }
 
 export default function Editor({ allPostsData }) {
-  const [ content, setContent ] = useState('Body');
-  const [ title, setTitle ] = useState('Title');
+  const [ content, setContent ] = useState('');
+  const [ title, setTitle ] = useState('');
   const [ id, setId ] = useState('');
   const onContentChange = useCallback((value) => {
     setContent(value);
@@ -95,9 +95,9 @@ export default function Editor({ allPostsData }) {
   return (
     <>
       <div className={styles.container}>
-        <input type="text" value={id} onChange={onIdChange} disabled={true} />
-        <input type="text" id='titleInput' value={title} onChange={onTitleChange} />
-        <SimpleMDEReact value={content} onChange={onContentChange} />
+        <input placeholder="New Note" type="text" value={id} onChange={onIdChange} disabled={true} />
+        <input placeholder="Title" type="text" id='titleInput' value={title} onChange={onTitleChange} />
+        <SimpleMDEReact placeholder="Body" value={content} onChange={onContentChange} />
       </div>
       <button id='saveNewPost' onClick={saveNewPost}>Save note</button>
       {error ? <p>There was an error: {errorMessage}</p> : <p>{errorMessage}</p>}
