@@ -29,5 +29,11 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 /tmp
-.vscode
+
 cypress/videos
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
