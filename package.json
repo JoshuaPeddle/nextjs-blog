@@ -18,7 +18,8 @@
     "react-simplemde-editor": "^5.2.0",
     "remark": "^14.0.2",
     "remark-gfm": "^3.0.1",
-    "remark-html": "^15.0.2"
+    "remark-html": "^15.0.2",
+    "sharp": "^0.32.0"
   },
   "devDependencies": {
     "cypress": "^12.9.0",
