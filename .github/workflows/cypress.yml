@@ -19,4 +19,4 @@ jobs:
           config: pageLoadTimeout=100000,baseUrl=${{ secrets.SERVER_URL }}
           browser: chrome
           build: npm run build
-          start: npm run dev
+          start: npm start
