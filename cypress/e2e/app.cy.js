@@ -36,7 +36,7 @@ describe('Post creation, edit and deletion', () => {
 
     // The new url should include "/about"
     cy.get('#saveNewPost').click()
-    cy.wait(1000)
+
   })
 
   it('Check that the note exists', () => {
@@ -45,7 +45,7 @@ describe('Post creation, edit and deletion', () => {
     cy.get('a').contains('Hello World').click()
 
     cy.get('p').contains('Hello World')
-    cy.wait(1000)
+
   })
 
   it('Edit the post', () => {
@@ -61,7 +61,7 @@ describe('Post creation, edit and deletion', () => {
 
     // The new url should include "/about"
     cy.get('#saveNewPost').click()
-    cy.wait(1000)
+
   })
 
   it('Check that the edited note exists', () => {
@@ -70,7 +70,7 @@ describe('Post creation, edit and deletion', () => {
     cy.get('a').contains('1234567').click()
 
     cy.get('p').contains('1234567')
-    cy.wait(1000)
+
   })
 
   it('Delete the note', () => {
@@ -84,7 +84,7 @@ describe('Post creation, edit and deletion', () => {
 
     cy.get('a').contains('1234567').should('not.exist')
     cy.get('a').contains('Hello World').should('not.exist')
-    cy.wait(1000)
+
   })
 
 })
