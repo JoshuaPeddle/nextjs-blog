@@ -13,8 +13,10 @@ jobs:
       - name: Cypress run
         env: # Or as an environment variable
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          SERVER_URL: ${{ secrets.SERVER_URL }}
         uses: cypress-io/github-action@v5.6.1 # use the explicit version number
         with:
+          config: pageLoadTimeout=100000,baseUrl=${{ secrets.SERVER_URL }}
           browser: chrome
           build: npm run build
           start: npm run dev

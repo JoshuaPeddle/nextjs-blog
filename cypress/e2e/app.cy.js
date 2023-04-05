@@ -8,7 +8,7 @@
 describe('Navigation', () => {
   it('should navigate to the about page', () => {
     // Start from the index page
-    cy.visit('http://192.168.2.162:3000/')
+    cy.visit('/')
 
     // Find a link with an href attribute containing "about" and click it
     console.log( cy.get('a[href*="about"]'))
