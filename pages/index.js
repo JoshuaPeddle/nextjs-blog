@@ -36,7 +36,7 @@ export default function Home({ allPostsData }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}></h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title, contentHtml }) => (
+          {allPostsData && allPostsData.map(({ id, date, title, contentHtml }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={{pathname:`/posts/${id}`, query: {id, date, title, contentHtml}}}>{title}</Link>
               <br />
