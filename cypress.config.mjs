@@ -15,4 +15,9 @@ export default defineConfig({
   },
   defaultCommandTimeout: 10000,
   video: false,
+  'retries': {
+    // Configure retry attempts for `cypress run`
+    // Default is 0
+    'runMode': 2,
+  }
 });

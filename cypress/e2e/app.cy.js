@@ -11,7 +11,7 @@ describe('Navigation', () => {
     cy.visit('/')
 
     // Find a link with an href attribute containing "about" and click it
-    console.log( cy.get('a[href*="about"]'))
+    console.log(cy.get('a[href*="about"]'))
     cy.get('a[href*="/about"]').click()
 
     // The new url should include "/about"
@@ -29,7 +29,7 @@ describe('Post creation, edit and deletion', () => {
     cy.visit('/editor')
 
     // Find a link with an href attribute containing "about" and click it
-    console.log( cy.get('a[href*="about"]'))
+    console.log(cy.get('a[href*="about"]'))
 
     cy.get('#titleInput').type('Hello World')
 
@@ -83,10 +83,18 @@ describe('Post creation, edit and deletion', () => {
 
     cy.get('a').contains('1234567').should('not.exist')
     cy.get('a').contains('Hello World').should('not.exist')
-    //cy.wait(1000)
+
+  })
+
+  beforeEach(() => {
+    console.log(Cypress.env('TEST'))
+    if (Cypress.env('TEST') === 'true') {
+
+      cy.wait(1000)
+    }
   })
 
 })
 
 // Prevent TypeScript from reading file as legacy script
-export {}
+export { }
