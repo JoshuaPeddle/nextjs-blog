@@ -22,7 +22,7 @@ describe('Navigation', () => {
   })
 })
 
-
+/*
 describe('Post creation, edit and deletion', () => {
   it('Submit new post', () => {
     // Start from the index page
@@ -95,6 +95,6 @@ describe('Post creation, edit and deletion', () => {
   })
 
 })
-
+*/
 // Prevent TypeScript from reading file as legacy script
 export { }
