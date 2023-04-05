@@ -54,6 +54,7 @@ describe('Post creation, edit and deletion', () => {
 
     // Find a link with an href attribute containing "about" and click it
     console.log( cy.get('a[href*="about"]'))
+    cy.get('#deleteButton').first().click()
     cy.get('#titleInput').type('{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}1234567')
 
     cy.get('.CodeMirror-scroll').type('{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}{backspace}1234567')
@@ -82,6 +83,7 @@ describe('Post creation, edit and deletion', () => {
     cy.visit('/')
 
     cy.get('a').contains('1234567').should('not.exist')
+    cy.get('a').contains('Hello World').should('not.exist')
     cy.wait(1000)
   })
 
