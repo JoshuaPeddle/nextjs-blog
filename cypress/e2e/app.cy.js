@@ -22,7 +22,7 @@ describe('Navigation', () => {
   })
 })
 
-/*
+
 describe('Post creation, edit and deletion', () => {
   it('Submit new post', () => {
     // Start from the index page
@@ -59,7 +59,7 @@ describe('Post creation, edit and deletion', () => {
     cy.get('.CodeMirror-scroll').type('1234567')
 
     // The new url should include "/about"
-    cy.get('#saveNewPost').click()
+    cy.get('#savePost').click()
     //cy.wait(1000)
   })
 
@@ -95,6 +95,6 @@ describe('Post creation, edit and deletion', () => {
   })
 
 })
-*/
+
 // Prevent TypeScript from reading file as legacy script
 export { }

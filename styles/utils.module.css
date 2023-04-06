@@ -68,11 +68,11 @@
   }
 
   .accentText {
-    color: #0070f3;
+    color: #0352ad;
   }
 
   @media (prefers-color-scheme: dark) {
     .accentText {
-        color: #112f29e9;
+        color: #2290ff;
       }
   }

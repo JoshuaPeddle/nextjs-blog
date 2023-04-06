@@ -3,33 +3,47 @@ import Head from 'next/head';
 import MDEeditor from '../components/editor';
 import { getSortedPostsData } from '../lib/posts';
 
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn} from 'next-auth/react';
 
 export async function getServerSideProps() {
   const allPostsData = await getSortedPostsData();
+  const isTesting = process.env.TEST;
   return {
     props: {
       allPostsData,
+      isTesting,
     },
   };
 }
 
-export default function Editor({ allPostsData }) {
-  const { data: session } = useSession();
-  if (session) {
+export default function Editor({ allPostsData, isTesting }) {
+  if (isTesting == 'true') {
     return (
       <Layout>
         <Head></Head>
         <MDEeditor allPostsData={allPostsData} />
-        <button onClick={() => signOut()}>Sign out</button>
+      </Layout>
+    );
+  }
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
+      // The user is not authenticated, handle it here.
+      signIn();
+    },
+  });
+  if (status === 'authenticated') {
+    return (
+      <Layout>
+        <Head></Head>
+        <MDEeditor allPostsData={allPostsData} />
       </Layout>
     );
   } else {
     return (
-      <Layout>
-        <Head></Head>
-        <button onClick={() => signIn()}>Sign in</button>
-      </Layout>
+      <>
+
+      </>
     );
   }
 }
