@@ -60,6 +60,7 @@ export default function Layout({ children, home }) {
           </>
         )}
       </header>
+      <div className={styles.blankDiv}/>
       <main>{children}</main>
       <Footer is_home={home} />
     </div>

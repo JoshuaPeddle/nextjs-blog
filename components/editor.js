@@ -28,8 +28,7 @@ function NoteList({ allPostsData, setPost, deletePost }) {
       <ul>
         {allPostsData.map(({ id, date, title, content }) => (
           <li key={id}>
-            <span className={utilStyles.accentText}>{title}</span>
-
+            <span className={styles.accentText}>{title}</span>
             <small className={utilStyles.darkText}>
               <CDate dateString={date} />
             </small>
@@ -41,7 +40,6 @@ function NoteList({ allPostsData, setPost, deletePost }) {
               Delete
               </button>
             </div>
-
           </li>
         ))}
       </ul>
