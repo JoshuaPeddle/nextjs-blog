@@ -1,6 +1,7 @@
 // pages/api/auth/[...nextauth].js
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
+import { signOut } from 'next-auth/react';
 
 export default NextAuth({
   secret: process.env.SECRET,
@@ -16,7 +17,7 @@ export default NextAuth({
       if (user.email === process.env.ADMIN_EMAIL) {
         return true;
       } else {
-        return '/';
+        signOut({callbackUrl: '/'});
       }
     }
   }

@@ -1,29 +1,32 @@
 import dynamic from 'next/dynamic';
 import { useState, useCallback } from 'react';
-import 'easymde/dist/easymde.min.css';
-import styles from './editor.module.css';
 const SimpleMDEReact = dynamic(() => import('react-simplemde-editor'), { ssr: false });
-import Date from '../components/date';
+import CDate from '../components/date';
+
+import 'easymde/dist/easymde.min.css';
 import utilStyles from '../styles/utils.module.css';
+import styles from './editor.module.css';
 
 function NoteList({ allPostsData, setPost, deletePost }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.list}>
       <ul>
         {allPostsData.map(({ id, date, title, content }) => (
           <li key={id}>
             <span className={utilStyles.accentText}>{title}</span>
-            <br />
-            <button id='editButton' onClick={() => setPost({ id, title, content })}>
-              Edit
-            </button>
-            <button id='deleteButton' onClick={() => deletePost({ id })}>
-              Delete
-            </button>
-            <br />
+
             <small className={utilStyles.darkText}>
-              <Date dateString={date} />
+              <CDate dateString={date} />
             </small>
+            <div className={styles.buttonContainer}>
+              <button id='editButton' onClick={() => setPost({ id, title, content })}>
+              Edit
+              </button>
+              <button id='deleteButton' onClick={() => deletePost({ id })}>
+              Delete
+              </button>
+            </div>
+
           </li>
         ))}
       </ul>
@@ -34,15 +37,18 @@ function NoteList({ allPostsData, setPost, deletePost }) {
 export default function Editor({ allPostsData }) {
   const [ content, setContent ] = useState('');
   const [ title, setTitle ] = useState('');
-  const [ id, setId ] = useState('');
+  const [ id, setId ] = useState(null);
+  const [ postsData, setPostsData ] = useState(allPostsData);
   const onContentChange = useCallback((value) => {
     setContent(value);
   }, []);
-  const onIdChange = useCallback((value) => {
-    setId(value.target.value);
-  }, []);
   const onTitleChange = useCallback((value) => {
     setTitle(value.target.value);
+  }, []);
+  const clearEditor = useCallback(() => {
+    setTitle('');
+    setId(null);
+    setContent('');
   }, []);
   const setPost = (value) => {
     setId(value.id);
@@ -50,7 +56,8 @@ export default function Editor({ allPostsData }) {
     setContent(value.content);
   };
   const deletePost = (value) => {
-    confirm('Are you sure you want to delete this item?');
+    const conf = confirm('Are you sure you want to delete this item?');
+    if (!conf) return;
     fetch('/api/posts/' + value.id, {
       method: 'DELETE',
       headers: {
@@ -60,6 +67,10 @@ export default function Editor({ allPostsData }) {
       .then((response) => {
         if (response.status === 200) {
           setError(false);
+          // Remove the post from the list
+          const newPosts = postsData.filter((post) => post.id !== value.id);
+          setPostsData(newPosts);
+          clearEditor();
         } else {
           setError(true);
         }
@@ -81,8 +92,38 @@ export default function Editor({ allPostsData }) {
     })
       .then((response) => {
         if (response.status === 200) {
-          setError(false);
-          setErrorMessage('Successfully saved new note');
+          const date = new Date().toISOString().slice(0, 10);
+          // Add the new post to the list
+          response.json().then((data) => {
+            // If note already exists, update it
+            if (id) {
+              const newPosts = postsData.map((post) => {
+                if (post.id === id) {
+                  post.title = title;
+                  post.content = content;
+                  post.date = date;
+                }
+                return post;
+              });
+              setPostsData(newPosts);
+              clearEditor();
+              setError(false);
+              setErrorMessage('Successfully updated note');
+              return;
+            }
+            console.log(data);
+            const newPost = {
+              key: data.id,
+              id: data.id,
+              title: title,
+              content: content,
+              date: date
+            };
+            setPostsData([ newPost, ...postsData ]);
+            clearEditor();
+            setError(false);
+            setErrorMessage('Successfully saved new note');
+          });
         } else {
           response.json().then((data) => {
             setError(true);
@@ -92,16 +133,42 @@ export default function Editor({ allPostsData }) {
       });
   }
 
+  const style = `
+  .CodeMirror {
+    color: rgb(var(--colors-secondary-dark)) !important;
+    border-radius: 8px !important;
+    border-color: rgb(var(--border-color-line-dark)) !important;
+    background-color: #11111A !important;
+  }
+  .editor-toolbar {
+    color: #111 !important;
+    border: none !important;
+    background-color: rgb(var(--background-color-bg-white-dark)) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+  `;
   return (
-    <>
-      <div className={styles.container}>
-        <input placeholder="New Note" type="text" value={id} onChange={onIdChange} disabled={true} />
-        <input placeholder="Title" type="text" id='titleInput' value={title} onChange={onTitleChange} />
-        <SimpleMDEReact placeholder="Body" value={content} onChange={onContentChange} />
+    <div>
+      <div className={styles.editor}>
+        <style suppressHydrationWarning>{style}</style>
+        <div className={styles.container}>
+          <input placeholder="Title" type="text" id='titleInput' value={title} onChange={onTitleChange} />
+        </div>
+        <SimpleMDEReact placeholder="Body" value={content} onChange={onContentChange} style={{background:'#11111a'}} />
+        <>
+          {id ?(
+            <>
+              <button id='savePost' onClick={saveNewPost}>Save changes</button>
+              <button id='clear' onClick={clearEditor}>clear</button>
+            </>
+          )  : 
+            <button id='saveNewPost' onClick={saveNewPost}>Save new note</button>}
+        </>
+        {error ? <p>There was an error: {errorMessage}</p> : <p>{errorMessage}</p>}
+        <NoteList setPost={setPost} deletePost={deletePost} allPostsData={postsData} />
       </div>
-      <button id='saveNewPost' onClick={saveNewPost}>Save note</button>
-      {error ? <p>There was an error: {errorMessage}</p> : <p>{errorMessage}</p>}
-      <NoteList setPost={setPost} deletePost={deletePost} allPostsData={allPostsData} />
-    </>
+    </div>
   );
 }
