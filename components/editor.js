@@ -7,6 +7,21 @@ import 'easymde/dist/easymde.min.css';
 import utilStyles from '../styles/utils.module.css';
 import styles from './editor.module.css';
 
+const MDEStyle = `
+.CodeMirror {
+  color: rgb(var(--colors-secondary-dark)) !important;
+  border-radius: 8px !important;
+  border-color: rgb(var(--border-color-line-dark)) !important;
+  background-color: #11111A !important;
+}
+.editor-toolbar {
+  color: #111 !important;
+  border: none !important;
+  background-color: rgb(var(--background-color-bg-white-dark)) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+`;
 function NoteList({ allPostsData, setPost, deletePost }) {
   return (
     <div className={styles.list}>
@@ -133,26 +148,10 @@ export default function Editor({ allPostsData }) {
       });
   }
 
-  const style = `
-  .CodeMirror {
-    color: rgb(var(--colors-secondary-dark)) !important;
-    border-radius: 8px !important;
-    border-color: rgb(var(--border-color-line-dark)) !important;
-    background-color: #11111A !important;
-  }
-  .editor-toolbar {
-    color: #111 !important;
-    border: none !important;
-    background-color: rgb(var(--background-color-bg-white-dark)) !important;
-    display: flex !important;
-    justify-content: space-between !important;
-  }
-
-  `;
   return (
     <div>
       <div className={styles.editor}>
-        <style suppressHydrationWarning>{style}</style>
+        <style suppressHydrationWarning>{MDEStyle}</style>
         <div className={styles.container}>
           <input placeholder="Title" type="text" id='titleInput' value={title} onChange={onTitleChange} />
         </div>
