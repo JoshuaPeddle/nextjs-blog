@@ -55,10 +55,6 @@ button {
   margin:  5px ;
 }
 
-textarea {
-color: #f36d33;
-}
-
 @media (prefers-color-scheme: dark) {
   html,
   body {
