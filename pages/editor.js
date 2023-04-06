@@ -7,14 +7,24 @@ import { useSession, signIn} from 'next-auth/react';
 
 export async function getServerSideProps() {
   const allPostsData = await getSortedPostsData();
+  const isTesting = process.env.TEST;
   return {
     props: {
       allPostsData,
+      isTesting,
     },
   };
 }
 
-export default function Editor({ allPostsData }) {
+export default function Editor({ allPostsData, isTesting }) {
+  if (isTesting == 'true') {
+    return (
+      <Layout>
+        <Head></Head>
+        <MDEeditor allPostsData={allPostsData} />
+      </Layout>
+    );
+  }
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
