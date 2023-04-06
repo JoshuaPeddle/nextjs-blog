@@ -15,17 +15,25 @@ export async function getServerSideProps() {
 }
 
 export default function Editor({ allPostsData }) {
-  useSession({
+  const { status } = useSession({
     required: true,
     onUnauthenticated() {
       // The user is not authenticated, handle it here.
       signIn();
     },
   });
-  return (
-    <Layout>
-      <Head></Head>
-      <MDEeditor allPostsData={allPostsData} />
-    </Layout>
-  );
+  if (status === 'authenticated') {
+    return (
+      <Layout>
+        <Head></Head>
+        <MDEeditor allPostsData={allPostsData} />
+      </Layout>
+    );
+  } else {
+    return (
+      <>
+
+      </>
+    );
+  }
 }
