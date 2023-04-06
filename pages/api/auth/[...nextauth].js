@@ -11,4 +11,13 @@ export default NextAuth({
       clientSecret: process.env.AUTH_GITHUB_SECRET,
     }),
   ],
+  callbacks: {
+    async signIn({ user }) {
+      if (user.email === process.env.ADMIN_EMAIL) {
+        return true;
+      } else {
+        return '/';
+      }
+    }
+  }
 });
