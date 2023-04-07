@@ -1,6 +1,6 @@
 # Nextjs-Blog
 
-This repository contains the code for my personal blog, which is built with Next.js and hosted on Vercel. Blog posts are written in markdown using the online editor. MongoDB is used as the database to store blog posts.
+This repository contains the code for my personal blo. It's built with Next.js and hosted on Vercel. Blog posts are written in markdown using the online editor. MongoDB is used as the database to store blog posts.
 
 Feel free to clone this repo and make it your own!
 
