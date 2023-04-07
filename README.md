@@ -2,11 +2,11 @@
 
 This repository contains the code for my personal blog, which is built with Next.js and hosted on Vercel. Blog posts are written in markdown using the online editor. MongoDB is used as the database to store blog posts.
 
+Feel free to clone this repo and make it your own!
 
 ## Markdown
 
-This project uses remark-gfm to obtain 100% GFM compatibility. This means that you can use all the features of GitHub Flavored Markdown in your posts.
-
+This project uses remark-gfm to obtain 100% GFM compatibility. All of the features of GitHub Flavored Markdown are integrated into the render.
 
 ## Code style
 
