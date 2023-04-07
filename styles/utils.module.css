@@ -41,10 +41,11 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    flex-grow: 1;
   }
   
   .listItem {
-    margin: 0 0 1.25rem;
+    margin: 0 0 .25rem;
   }
 
   .lightText {
