@@ -1,7 +1,9 @@
 import dynamic from 'next/dynamic';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 const SimpleMDEReact = dynamic(() => import('react-simplemde-editor'), { ssr: false });
 import CDate from '../components/date';
+
+import LeftRightButtons from './LeftRightButtons';
 
 import 'easymde/dist/easymde.min.css';
 import utilStyles from '../styles/utils.module.css';
@@ -23,11 +25,15 @@ const MDEStyle = `
 }
 `;
 function NoteList({ allPostsData, setPost, deletePost }) {
+  const  numPostsToShow = 6;
+  const [ currentStartIndex, setCurrentStartIndex ] = useState(0);
+  const [ currentEndIndex, setCurrentEndIndex ] = useState(currentStartIndex + numPostsToShow);
+  const targetRef = useRef();
   return (
     <div className={styles.list}>
       <ul>
-        {allPostsData.map(({ id, date, title, content }) => (
-          <li key={id}>
+        {allPostsData && allPostsData.slice(currentStartIndex, currentEndIndex).map(({ id, date, title, content }) => (
+          <li key={id}  ref={targetRef}>
             <span className={styles.accentText}>{title}</span>
             <small className={utilStyles.darkText}>
               <CDate dateString={date} />
@@ -42,6 +48,7 @@ function NoteList({ allPostsData, setPost, deletePost }) {
             </div>
           </li>
         ))}
+        <LeftRightButtons currentStartIndex={currentStartIndex} currentEndIndex={currentEndIndex} setCurrentStartIndex={setCurrentStartIndex} setCurrentEndIndex={setCurrentEndIndex} numPostsToShow={numPostsToShow} allPostsData={allPostsData} />
       </ul>
     </div>
   );
