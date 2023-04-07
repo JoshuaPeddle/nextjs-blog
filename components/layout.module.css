@@ -1,10 +1,11 @@
 .container {
     max-width: 36rem;
     padding: 0 1rem;
-    margin: 3rem auto 6rem;
+    margin: 2rem auto 0rem;
     display: flex;
     flex-direction: column;
-    min-height: 90svh;
+    min-height: 95dvh;
+
   }
   
 .header {
@@ -20,3 +21,4 @@
 .blankDiv {
   flex-grow: 1;
 }
+
