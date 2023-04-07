@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useCallback, useRef } from 'react';
 const SimpleMDEReact = dynamic(() => import('react-simplemde-editor'), { ssr: false });
 import CDate from '../components/date';
 
