@@ -69,7 +69,7 @@ describe('Post creation, edit and deletion', () => {
     cy.get('a').contains('Title').click()
 
     cy.get('p').contains('Hello World1234567')
-    cy.wait(1000)
+    //cy.wait(1000)
   })
 
   it('Delete the note', () => {
@@ -90,10 +90,16 @@ describe('Post creation, edit and deletion', () => {
     console.log(Cypress.env('TEST'))
     if (Cypress.env('TEST') === 'true') {
 
-      cy.wait(Cypress.env('TEST_DELAY') || 100)
+      cy.wait(Cypress.env('TEST_DELAY') || 1000)
     }
   })
+  afterEach(() => {
+    console.log(Cypress.env('TEST'))
+    if (Cypress.env('TEST') === 'true') {
 
+      cy.wait(Cypress.env('TEST_DELAY') || 1000)
+    }
+  })
 })
 
 // Prevent TypeScript from reading file as legacy script
