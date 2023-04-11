@@ -25,7 +25,9 @@ export default function Editor({ allPostsData, isTesting }) {
       </Layout>
     );
   }
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { status } = useSession({
+    
     required: true,
     onUnauthenticated() {
       // The user is not authenticated, handle it here.

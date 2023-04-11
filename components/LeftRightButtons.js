@@ -22,7 +22,7 @@ export default function LeftRightButtons({ currentStartIndex, currentEndIndex, s
     } else {
       setAtEnd(false);
     }
-  }, [ currentEndIndex, totalPosts, numPostsToShow ]);
+  }, [ currentEndIndex, totalPosts, numPostsToShow, currentStartIndex ]);
   
   return (
     <div  id='test' className={blogStyle.buttonDiv}>
