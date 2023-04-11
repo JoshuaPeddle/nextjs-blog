@@ -19,6 +19,7 @@ jobs:
           NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
           NEXTAUTH_URL: http://localhost:3000
           TEST: 'true'
+          TEST_DELAY: 2000 # Compensate for github actions runner being slow
         uses: cypress-io/github-action@v5.6.1 # use the explicit version number
         with:
           config: pageLoadTimeout=100000,baseUrl=${{ secrets.SERVER_URL }}

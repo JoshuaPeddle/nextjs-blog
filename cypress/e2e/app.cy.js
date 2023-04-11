@@ -90,7 +90,7 @@ describe('Post creation, edit and deletion', () => {
     console.log(Cypress.env('TEST'))
     if (Cypress.env('TEST') === 'true') {
 
-      cy.wait(1000)
+      cy.wait(Cypress.env('TEST_DELAY') || 100)
     }
   })
 
