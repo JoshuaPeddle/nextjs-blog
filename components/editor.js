@@ -14,6 +14,7 @@ const MDEStyle = `
   color: rgb(var(--colors-secondary-dark)) !important;
   border-radius: 8px !important;
   border-color: rgb(var(--border-color-line-dark)) !important;
+
   background-color: #11111A !important;
 }
 .editor-toolbar {
@@ -22,6 +23,7 @@ const MDEStyle = `
   background-color: rgb(var(--background-color-bg-white-dark)) !important;
   display: flex !important;
   justify-content: space-between !important;
+  background: transparent !important;
 }
 `;
 function NoteList({ allPostsData, setPost, deletePost }) {
