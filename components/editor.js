@@ -15,15 +15,29 @@ const MDEStyle = `
   border-radius: 8px !important;
   border-color: rgb(var(--border-color-line-dark)) !important;
 
-  background-color: #11111A !important;
+  background-color: #11111a;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2322222a' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+
 }
 .editor-toolbar {
   color: #111 !important;
   border: none !important;
-  background-color: rgb(var(--background-color-bg-white-dark)) !important;
+  background-color: #11111a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2322222a' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  
   display: flex !important;
   justify-content: space-between !important;
-  background: transparent !important;
+
+}
+.editor-statusbar {
+  color: #fff !important;
+  border: none !important;
+  background-color: #11111a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2322222a' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  
+  display: flex !important;
+  justify-content: space-between !important;
+
 }
 `;
 function NoteList({ allPostsData, setPost, deletePost }) {
