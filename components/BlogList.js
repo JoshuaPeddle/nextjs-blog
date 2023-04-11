@@ -32,7 +32,7 @@ export default function BlogList({ allPostsData }) {
     const postsPerPage = Math.floor((pageHeight*.50) / postHight);
     setNumPostsToShow(postsPerPage);
     setCurrentEndIndex(currentStartIndex + postsPerPage);
-  }, [ dimensions, pageHeight ]);
+  }, [ dimensions, pageHeight, currentStartIndex ]);
 
   return (
     <>
