@@ -29,7 +29,7 @@ export default function BlogList({ allPostsData }) {
   // set the number of posts to show based on the height the page
   useEffect(() => {
     const postHight = dimensions.height;
-    const postsPerPage = Math.floor((pageHeight*.50) / postHight);
+    const postsPerPage = Math.floor((pageHeight*.55) / postHight);
     setNumPostsToShow(postsPerPage);
     setCurrentEndIndex(currentStartIndex + postsPerPage);
   }, [ dimensions, pageHeight, currentStartIndex ]);
