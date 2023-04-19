@@ -19,7 +19,7 @@ export default function Post({ date, title, contentHtml}) {
       <Head>
         <title>{title}</title>
       </Head>
-      <article>
+      <article className={utilStyles.blogPost}>
         <h1 className={utilStyles.headingXl}>{title}</h1>
         <div className={utilStyles.lightText}>
           <Date dateString={date} />
