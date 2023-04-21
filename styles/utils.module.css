@@ -1,88 +1,95 @@
 .heading2Xl {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.05rem;
-    margin: 1rem 0;
-  }
-  
-  .headingXl {
-    font-size: 2rem;
-    line-height: 1.3;
-    font-weight: 800;
-    letter-spacing: -0.05rem;
-    margin: 1rem 0;
-  }
-  
-  .headingLg {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    margin: 1rem 0;
-  }
-  
-  .headingMd {
-    font-size: 1.2rem;
-    line-height: 1.5;
-  }
-  
-  .borderCircle {
-    border-radius: 9999px;
-  }
-  
-  .colorInherit {
-    color: inherit;
-  }
-  
-  .padding1px {
-    padding-top: 1px;
-  }
-  
-  .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-  }
-  
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingXl {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+}
+
+.headingLg {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+}
+
+.headingMd {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.borderCircle {
+  border-radius: 9999px;
+}
+
+.colorInherit {
+  color: inherit;
+}
+
+.padding1px {
+  padding-top: 1px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.listItem {
+  margin: 0 1rem .25rem;
+  border-radius: 1px;
+  box-shadow: 0 1px 2px 0 #33333a;
+  padding: .5rem;
+  background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
   .listItem {
-    margin: 0 1rem .25rem;
-    border-radius: 1px;
-    box-shadow:  0 1px 2px 0 #33333a;
-    padding: .5rem;
     background-color: #22222a;
     border: 1px solid #22222a;
   }
+}
 
+
+.lightText {
+  color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
   .lightText {
-    color: #666;
+    color: #aaa;
   }
+}
 
-  @media (prefers-color-scheme: dark) {
-    .lightText {
-        color: #aaa;
-      }
-  }
+.darkText {
+  color: #333;
+}
 
+@media (prefers-color-scheme: dark) {
   .darkText {
-    color: #333;
+    color: #9f9c9c;
   }
+}
 
-  @media (prefers-color-scheme: dark) {
-    .darkText {
-        color: #9f9c9c;
-      }
-  }
+.accentText {
+  color: #0352ad;
+}
 
+@media (prefers-color-scheme: dark) {
   .accentText {
-    color: #0352ad;
+    color: #2290ff;
   }
+}
 
-  @media (prefers-color-scheme: dark) {
-    .accentText {
-        color: #2290ff;
-      }
-  }
-
-  .blogPost {
-    margin: 0.25rem 1rem;
-  }
+.blogPost {
+  margin: 0.25rem 1rem;
+}

@@ -1,15 +1,19 @@
 .container {
-    max-width: 36rem;
-    padding: 0 0rem;
-    margin: 0rem auto 0rem;
-    display: flex;
-    flex-direction: column;
-    min-height: 100dvh;
-    background-color: #11111a;
-    background: rgb(17,17,26);
-    background: radial-gradient(circle, rgba(17,17,26,1) 0%, rgba(21,21,31,1) 50%);
+  max-width: 36rem;
+  padding: 0 0rem;
+  margin: 0rem auto 0rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: #dfdfdf;
+}
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: radial-gradient(circle, rgba(17, 17, 26, 1) 0%, rgba(21, 21, 31, 1) 50%);
   }
-  
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -23,4 +27,3 @@
 .blankDiv {
   flex-grow: 1;
 }
-
