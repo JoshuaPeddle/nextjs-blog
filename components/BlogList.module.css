@@ -1,10 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
 
-.disabledButton{ 
+.disabledButton {
     font-family: Roboto, sans-serif;
     font-weight: 900;
     font-size: 14px;
-    color: #aaa;
-    background-color: #11111a;
     padding: 10px 30px;
     border: solid #4c4c75 2px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -16,6 +15,13 @@
     cursor: not-allowed;
 }
 
+@media (prefers-color-scheme: dark) {
+    .disabledButton {
+        background-color: #11111a;
+        color: #aaa;
+    }
+}
+
 .buttonDiv {
     display: flex;
     flex-direction: row;
@@ -24,57 +30,47 @@
     width: 100%;
     background: transparent;
     padding-top: 10px;
-  }
+}
 
+.button {
+    font-family: Roboto, sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 10px 30px;
+    border: solid #4c4c75 2px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 25px 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-transform: lowercase;
+}
 
-
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
-  
-  .button{
-  
-  font-family: Roboto, sans-serif;
-  font-weight: 900;
-  font-size: 14px;
-  color: #fff;
-  background-color: #2f2f47;
-  padding: 10px 30px;
-  border: solid #4c4c75 2px;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  border-radius: 25px 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-transform: lowercase;
-  }
-  @media (pointer: fine) {
-    .button{
-  
-        font-family: Roboto, sans-serif;
-        font-weight: 900;
-        font-size: 14px;
-        color: #fff;
+@media (prefers-color-scheme: dark) {
+    .button {
         background-color: #2f2f47;
-        padding: 10px 30px;
-        border: solid #4c4c75 2px;
-        box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-        border-radius: 25px 50px;
-        transition : 584ms;
+        color: #fff;
+    }
+}
+
+@media (pointer: fine) {
+    .button {
+        transition: 584ms;
         transform: translateY(0);
         display: flex;
         flex-direction: row;
         align-items: center;
         cursor: pointer;
         text-transform: lowercase;
-        }
-    .button:hover{
-  
-        transition : 584ms;
+    }
+
+    .button:hover {
+        transition: 584ms;
         padding: 10px 30px;
-        transform : translateY(-2px);
+        transform: translateY(-2px);
         background-color: #fff;
         color: #0066cc;
         border: solid 2px #0066cc;
-        }
-        
-  }
+    }
 
+}
