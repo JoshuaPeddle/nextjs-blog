@@ -17,8 +17,11 @@
 
 @media (prefers-color-scheme: dark) {
     .disabledButton {
-        background-color: #11111a;
+        background-color: #001a1a;
         color: #aaa;
+        border-style: double;
+        border-color: #7c7a7a;
+        border-width: 3px;
     }
 }
 
@@ -37,7 +40,7 @@
     font-weight: 900;
     font-size: 14px;
     padding: 10px 30px;
-    border: solid #4c4c75 2px;
+    border: double #4c4c75 2px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     border-radius: 25px 50px;
     display: flex;
@@ -46,12 +49,6 @@
     text-transform: lowercase;
 }
 
-@media (prefers-color-scheme: dark) {
-    .button {
-        background-color: #2f2f47;
-        color: #fff;
-    }
-}
 
 @media (pointer: fine) {
     .button {
@@ -70,7 +67,24 @@
         transform: translateY(-2px);
         background-color: #fff;
         color: #0066cc;
-        border: solid 2px #0066cc;
     }
 
+}
+@media (prefers-color-scheme: dark) {
+    .button {
+        background-color: #001a1a;
+        color: #fff;
+        border-style: double;
+        border-color: #fff;
+        color: #c3c0c0;
+        border-width: 3px;
+    }
+    .button:hover {
+        transition: 584ms;
+        padding: 10px 30px;
+        transform: translateY(-2px);
+        background-color: #000000;
+        color: #fffbfb;
+
+    }
 }

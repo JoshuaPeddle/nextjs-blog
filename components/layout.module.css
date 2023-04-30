@@ -10,7 +10,7 @@
 
 @media (prefers-color-scheme: dark) {
   .container {
-    background: radial-gradient(circle, rgba(17, 17, 26, 1) 0%, rgba(21, 21, 31, 1) 50%);
+    background: #002626;
   }
 }
 

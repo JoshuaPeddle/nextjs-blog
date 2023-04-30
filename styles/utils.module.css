@@ -4,6 +4,15 @@
   font-weight: 800;
   letter-spacing: -0.05rem;
   margin: 1rem 0;
+  border-style: double;
+  border-radius: 10px;
+  padding: 0.5rem;
+  
+}
+@media (prefers-color-scheme: dark) {
+  .heading2Xl {
+   background-color: #003333;
+  }
 }
 
 .headingXl {
@@ -54,8 +63,9 @@
 
 @media (prefers-color-scheme: dark) {
   .listItem {
-    background-color: #22222a;
+    background-color: #373b3e;
     border: 1px solid #22222a;
+    border-radius: 10px;
   }
 }
 
@@ -66,7 +76,8 @@
 
 @media (prefers-color-scheme: dark) {
   .lightText {
-    color: #aaa;
+    color: #C5C3C3;
+    font-weight: 600;
   }
 }
 

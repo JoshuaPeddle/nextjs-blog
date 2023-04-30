@@ -61,7 +61,7 @@ button {
 @media (prefers-color-scheme: dark) {
   html,
   body {
-    background-color: #11111a;
+    background-color: #001a1a;
     color: #fff;
   }
   code {
@@ -69,7 +69,7 @@ button {
     color: #ddd;
   }
   a {
-    color: #2290ff;
+    color: #4BA4FF;
     text-decoration: none;
   }
   button {
