@@ -39,7 +39,7 @@ export default function BlogList({ allPostsData }) {
       <ul className={utilStyles.list} >
         {allPostsData && allPostsData.slice(currentStartIndex, currentEndIndex).map(({ id, date, title, contentHtml }) => (
           <li className={utilStyles.listItem} key={id} ref={targetRef}>
-            <Link href={{pathname:`/posts/${id}`, query: {id, date, title, contentHtml}}}>{title}</Link>
+            <Link className={utilStyles.link} href={{pathname:`/posts/${id}`, query: {id, date, title, contentHtml}}}>{title}</Link>
             <br />
             <small className={utilStyles.lightText}>
               <Date dateString={date} />
