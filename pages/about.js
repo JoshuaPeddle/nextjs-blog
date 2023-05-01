@@ -1,13 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import Layout from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
 
 export default function About() {
   return (
     <Layout about>
       <h1>About</h1>
-      <div style={utilStyles.padding1rem}>
+      <div>
         <p>
           Hi, I'm Josh Peddle, a passionate software developer based in Canada. I graduated with a degree in computer science from Memorial University, where I honed my skills in programming and software development. I'm also an active Github contributor, working on a variety of projects in my spare time.
           <p>
