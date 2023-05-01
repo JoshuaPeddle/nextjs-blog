@@ -7,11 +7,15 @@
   border-style: double;
   border-radius: 10px;
   padding: 0.5rem;
+  color: white;
+  text-shadow: -1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px 1.2px 0 #000, 1.2px 1.2px 0 #000;
+  border-color: black;
   
 }
 @media (prefers-color-scheme: dark) {
   .heading2Xl {
    background-color: #003333;
+   text-shadow: -1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px 1.2px 0 #000, 1.2px 1.2px 0 #000;
   }
 }
 
@@ -29,9 +33,25 @@
   margin: 1rem 0;
 }
 
+
+.secondHeader {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: white;
+  text-shadow: -.8px -.8px 0 #000, .8px -.8px 0 #000, -.8px .8px 0 #000, .8px .8px 0 #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .secondHeader {
+    text-shadow: -1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px 1.2px 0 #000, 1.2px 1.2px 0 #000;
+  }
+}
+
 .headingMd {
   font-size: 1.2rem;
   line-height: 1.5;
+  color: white;
+  
 }
 
 .borderCircle {
@@ -58,29 +78,35 @@
   border-radius: 1px;
   box-shadow: 0 1px 2px 0 #33333a;
   padding: .5rem;
-  background-color: #fff;
+  background-color: #d9dddc;
+  border-radius: 10px;
+  border: 1px solid #22222a4c;
 }
-
+.link{
+  font-weight: 700;
+}
 @media (prefers-color-scheme: dark) {
   .listItem {
-    background-color: #373b3e;
+    background-color: #15433d;
     border: 1px solid #22222a;
-    border-radius: 10px;
   }
   .link{
     font-weight: 700;
+    color: #0676e6;
+   
   }
 }
 
 
 .lightText {
   color: #666;
+  font-weight: 600;
 }
 
 @media (prefers-color-scheme: dark) {
   .lightText {
     color: #C5C3C3;
-    font-weight: 600;
+
   }
 }
 

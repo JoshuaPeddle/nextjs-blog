@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
-  background: #dfdfdf;
+  background: #99cccc;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -13,6 +13,7 @@
     align-items: center;
     text-transform: lowercase;
     cursor: not-allowed;
+    background-color: #cfcdcda4;
 }
 
 @media (prefers-color-scheme: dark) {

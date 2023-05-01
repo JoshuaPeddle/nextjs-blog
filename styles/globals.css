@@ -6,7 +6,7 @@ body {
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
-  background-color: #dddddd;
+  background-color: #80c0c0;
 
 }
 
@@ -81,12 +81,5 @@ button {
     display: inline-block;
     font-size: 14px;
   }
-    @media (pointer: fine) {
-      button:hover {
-
-      }
-        
-  }
-
 
 }
