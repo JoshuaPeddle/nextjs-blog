@@ -25,12 +25,18 @@
   font-weight: 800;
   letter-spacing: -0.05rem;
   margin: 1rem 0;
-}
 
+}
+@media (prefers-color-scheme: dark) {
+  .headingXl {
+   text-shadow: -1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px 1.2px 0 #000, 1.2px 1.2px 0 #000;
+  }
+}
 .headingLg {
   font-size: 1.5rem;
   line-height: 1.4;
   margin: 1rem 0;
+  
 }
 
 
@@ -60,11 +66,25 @@
 
 .colorInherit {
   color: inherit;
+  text-shadow: -1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px 1.2px 0 #000, 1.2px 1.2px 0 #000;
+  border-color: black;
+  border-style: double;
+  border-radius: 10px;
+  padding: 0.5rem;
+  color: white;
+  text-shadow: -1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px 1.2px 0 #000, 1.2px 1.2px 0 #000;
+  border-color: black;
+  background-color: #003333;
 }
 
 .padding1px {
   padding-top: 1px;
 }
+
+.padding1rem {
+  padding-top: 1rem;
+}
+
 
 .list {
   list-style: none;

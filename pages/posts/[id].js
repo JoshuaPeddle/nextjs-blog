@@ -17,7 +17,7 @@ export default function Post({ date, title, contentHtml}) {
   return (
     <Layout>
       <Head>
-        <title>{title}</title>
+        <title >{title}</title>
       </Head>
       <article className={utilStyles.blogPost}>
         <h1 className={utilStyles.headingXl}>{title}</h1>
